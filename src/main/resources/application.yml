@@ -1,0 +1,11 @@
+eventHub:
+  namespace: your namespace here
+  eventHubName: your event hub name
+  sharedAccessKey: your event hub shared access key
+  sharedAccessKeyName: your shared access key name
+  storage:
+    consumerGroupName: your consumer group
+    storageConnectionString: your storage connection string
+    storageContainerName: your storage container name
+    hostNamePrefix: your host name prefix
+

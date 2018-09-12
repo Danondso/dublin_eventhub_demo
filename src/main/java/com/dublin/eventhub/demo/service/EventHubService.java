@@ -27,13 +27,15 @@ public class EventHubService {
         this.eventHubClient = eventHubClient;
     }
 
-    public void sendEvent(EventPayload test) throws EventHubException {
-       byte[] bytes =  test.toString().getBytes();
+    public void sendEvent(EventPayload test) {
+
+        byte[] bytes = SerializationUtils.serialize(test);
         log.info("Sending message to the event hub {}", eventHubClient.getEventHubName());
         eventHubClient.send(EventData.create(Objects.requireNonNull(bytes)), test.toString());
 
         log.info("Successfully sent message, closing connection..");
-        eventHubClient.closeSync();
+        //Closing the client prevents you from reading again
+        //eventHubClient.closeSync();
 
     }
 }

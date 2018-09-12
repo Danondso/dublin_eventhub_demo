@@ -32,6 +32,7 @@ public class Controller {
             log.info("Eventhub send endpoint called, sending {} to event hub..", payload.toString());
             eventHubService.sendEvent(payload);
         } catch (Exception e) {
+            log.error("An error arose sending a message to event hub: " + e);
             return new ResponseEntity<Exception>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity(HttpStatus.OK);

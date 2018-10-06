@@ -4,8 +4,6 @@ import com.dublin.eventhub.demo.controller.Controller;
 import com.dublin.eventhub.demo.model.EventPayload;
 import com.microsoft.azure.eventhubs.EventData;
 import com.microsoft.azure.eventhubs.EventHubClient;
-import com.microsoft.azure.eventhubs.EventHubException;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.util.SerializationUtils;
 
 import java.util.Objects;
 
-@Slf4j
 @Service
 public class EventHubService {
 
@@ -30,12 +27,11 @@ public class EventHubService {
     public void sendEvent(EventPayload test) {
 
         byte[] bytes = SerializationUtils.serialize(test);
+
         log.info("Sending message to the event hub {}", eventHubClient.getEventHubName());
         eventHubClient.send(EventData.create(Objects.requireNonNull(bytes)), test.toString());
 
         log.info("Successfully sent message, closing connection..");
-        //Closing the client prevents you from reading again
-        //eventHubClient.closeSync();
 
     }
 }

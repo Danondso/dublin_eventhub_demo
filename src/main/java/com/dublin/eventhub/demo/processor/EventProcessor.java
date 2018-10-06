@@ -24,22 +24,22 @@ public class EventProcessor implements IEventProcessor {
 
     @Override
     public void onOpen(PartitionContext context) {
-        log.info("SAMPLE: Partition OPEN" + context.getPartitionId() + " is opening");
+//        log.info("SAMPLE: Partition OPEN" + context.getPartitionId() + " is opening");
     }
 
     @Override
     public void onClose(PartitionContext context, CloseReason reason) {
-        log.info("SAMPLE: Partition CLOSE" + context.getPartitionId() + " is closing for reason " + reason.toString());
+//        log.info("SAMPLE: Partition CLOSE" + context.getPartitionId() + " is closing for reason " + reason.toString());
     }
 
     @Override
     public void onError(PartitionContext context, Throwable error) {
-        log.info("SAMPLE: Partition ERROR" + context.getPartitionId() + " onError: " + error.toString());
+//        log.info("SAMPLE: Partition ERROR" + context.getPartitionId() + " onError: " + error.toString());
     }
 
     @Override
     public void onEvents(PartitionContext context, Iterable<EventData> events) {
-        log.info("SAMPLE: Partition PROCESSING " + context.getPartitionId() + " got event batch");
+//        log.info("SAMPLE: Partition PROCESSING " + context.getPartitionId() + " got event batch");
 
         for (EventData data : events) {
             try {
@@ -52,6 +52,7 @@ public class EventProcessor implements IEventProcessor {
                 context.checkpoint(data);
 
             } catch (Exception e) {
+                context.checkpoint();
                 log.info("Processing failed for an event: " + e);
             }
         }

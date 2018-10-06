@@ -25,6 +25,11 @@ public class Controller {
         return "Hello World!";
     }
 
+    @RequestMapping(method = RequestMethod.POST, path = "/eventhub/test")
+    public ResponseEntity<EventPayload> respond(@RequestBody EventPayload payload) {
+        return new ResponseEntity(payload,HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.POST, path = "/eventhub/send")
     public ResponseEntity test(@RequestBody EventPayload payload) {
 

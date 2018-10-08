@@ -7,8 +7,7 @@ This app I put together to teach myself about event hub. It's a Spring Boot web 
 
 ### How do I run it? ###
 
-There's a Dockerfile in the repo.
-Run the following at the project root and you should be good to go.
+You'll need to setup an azure account and event hub first. Plug in your namespace, key and all that magic into the yml file. Once that's out of the way. There's a Dockerfile in the repo. Run the following at the project root and you should be good to go.
 
 ~~~~
 mvn package

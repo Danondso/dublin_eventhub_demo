@@ -58,9 +58,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <finalName>dublin_eventhub_demo</finalName>
+                    <executable>true</executable>
+                    <mainClass>com.dublin.eventhub.demo.Application</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
-
 </project>

@@ -1,0 +1,11 @@
+eventHub:
+  namespace: event-hub-test
+  eventHubName: test
+  sharedAccessKey: 1c231397-9084-4ff5-8be2-ee0d7612d8ca
+  sharedAccessKeyName: A_BIG_SECRET
+  maxBatchSize: 3
+  storage:
+    consumerGroupName:  consumerGroup
+    storageConnectionString: Endpoint=connectionstring
+    storageContainerName: TEST
+    hostNamePrefix: event-hub-test

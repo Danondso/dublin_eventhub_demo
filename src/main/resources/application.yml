@@ -3,6 +3,7 @@ eventHub:
   eventHubName: your event hub name
   sharedAccessKey: your event hub shared access key
   sharedAccessKeyName: your shared access key name
+  maxBatchSize: 3
   storage:
     consumerGroupName: your consumer group
     storageConnectionString: your storage connection string

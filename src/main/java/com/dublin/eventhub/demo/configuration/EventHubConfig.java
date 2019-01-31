@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 @Configuration
 public class EventHubConfig {
@@ -57,7 +58,7 @@ public class EventHubConfig {
 
     @Bean
     public EventHubClient setupEventHubConnection() throws IOException, EventHubException {
-        return EventHubClient.createSync(createEventHubConnectionString(), Executors.newSingleThreadExecutor());
+        return EventHubClient.createSync(createEventHubConnectionString(), Executors.newSingleThreadScheduledExecutor());
     }
 
     @Bean

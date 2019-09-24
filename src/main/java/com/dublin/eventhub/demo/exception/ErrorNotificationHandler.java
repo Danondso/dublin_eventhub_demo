@@ -2,11 +2,8 @@ package com.dublin.eventhub.demo.exception;
 
 import java.util.function.Consumer;
 
-import com.dublin.eventhub.demo.controller.Controller;
 import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class ErrorNotificationHandler implements Consumer<ExceptionReceivedEventArgs> {

@@ -1,7 +1,6 @@
 package com.dublin.eventhub.demo.configuration;
 
 import com.dublin.eventhub.demo.exception.ErrorNotificationHandler;
-import com.dublin.eventhub.demo.processor.EventPayloadProcessor;
 import com.dublin.eventhub.demo.processor.EventProcessor;
 import com.microsoft.azure.eventprocessorhost.*;
 import org.slf4j.Logger;
@@ -24,15 +23,11 @@ public class EventProcessorHostConfig {
         this.eventProcessorHost = eventProcessorHost;
     }
 
-    IEventProcessorFactory<EventProcessor> createEventProcessorFactory(){
-        return partitionContext -> new EventProcessor();
-    }
-
     @PostConstruct
     public void run() throws ExecutionException, InterruptedException {
         log.info("Setting up event hub {}", eventProcessorHost.getHostName());
         EventProcessorOptions options = new EventProcessorOptions();
         options.setExceptionNotification(new ErrorNotificationHandler());
-        eventProcessorHost.registerEventProcessorFactory(createEventProcessorFactory(), options).get();
+        eventProcessorHost.registerEventProcessor(EventProcessor.class, options).get();
     }
 }

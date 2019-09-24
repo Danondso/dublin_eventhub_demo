@@ -11,8 +11,6 @@ import org.slf4j.LoggerFactory;
 @Slf4j
 public class ErrorNotificationHandler implements Consumer<ExceptionReceivedEventArgs> {
 
-    private Logger log = LoggerFactory.getLogger(Controller.class);
-
     @Override
     public void accept(ExceptionReceivedEventArgs t) {
         log.error("SAMPLE: Host " + t.getHostname() + " received general error notification during " + t.getAction() + ": " + t.getException().toString());

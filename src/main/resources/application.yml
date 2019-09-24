@@ -1,12 +1,8 @@
 eventHub:
-  namespace: your namespace here
-  eventHubName: your event hub name
-  sharedAccessKey: your event hub shared access key
-  sharedAccessKeyName: your shared access key name
-  maxBatchSize: 3
+  connectionString: 'connections string here'
+  name: 'event hub name here'
   storage:
-    consumerGroupName: your consumer group
-    storageConnectionString: your storage connection string
-    storageContainerName: your storage container name
-    hostNamePrefix: your host name prefix
-
+    consumerGroupName: $Default
+    storageConnectionString: 'storage connection string here'
+    storageContainerName: 'storage container name here'
+    hostNamePrefix: f1534aa5-262b-4c6b-a9f8-fd5af544f85b

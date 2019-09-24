@@ -20,19 +20,8 @@ public class Controller {
         this.eventHubService = eventHubService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/")
-    public String test() {
-        return "Hello World!";
-    }
-
-    @RequestMapping(method = RequestMethod.POST, path = "/eventhub/test")
-    public ResponseEntity<EventPayload> respond(@RequestBody EventPayload payload) {
-        return new ResponseEntity(payload,HttpStatus.OK);
-    }
-
-    @RequestMapping(method = RequestMethod.POST, path = "/eventhub/send")
-    public ResponseEntity test(@RequestBody EventPayload payload) {
-
+    @PostMapping(path = "/eventhub/send")
+    public ResponseEntity sendEvent(@RequestBody EventPayload payload) {
         try {
             log.info("Eventhub send endpoint called, sending {} to event hub..", payload.toString());
             eventHubService.sendEvent(payload);
@@ -40,7 +29,6 @@ public class Controller {
             log.error("An error arose sending a message to event hub: " + e);
             return new ResponseEntity<Exception>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
-
 }

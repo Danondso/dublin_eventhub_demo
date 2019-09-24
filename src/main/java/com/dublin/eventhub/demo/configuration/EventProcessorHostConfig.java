@@ -25,7 +25,7 @@ public class EventProcessorHostConfig {
     }
 
     IEventProcessorFactory<EventProcessor> createEventProcessorFactory(){
-        return partitionContext -> new EventProcessor(new EventPayloadProcessor());
+        return partitionContext -> new EventProcessor();
     }
 
     @PostConstruct

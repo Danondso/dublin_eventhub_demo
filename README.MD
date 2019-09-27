@@ -22,10 +22,6 @@ docker run -p 8080:8080 dublin_eventhub_demo_container
   "firstName": "test",
   "lastName": "testLastName",
   "email": "anotherTestEmail@dogpile.com",
-  "eventPayloadDetails":
-    {
-      "appId":"680360c0-43fe-4209-aeb0-f7",
-      "userName":"SadAndroid"
-    }
+  "favoriteFood": "bananas"
 }
 ```

@@ -14,8 +14,6 @@ import java.util.Objects;
 
 @Service
 public class EventHubService {
-
-
     private final EventHubClient eventHubClient;
     private Logger log = LoggerFactory.getLogger(Controller.class);
 
@@ -30,8 +28,5 @@ public class EventHubService {
 
         log.info("Sending message to the event hub {}", eventHubClient.getEventHubName());
         eventHubClient.send(EventData.create(Objects.requireNonNull(bytes)), test.toString());
-
-        log.info("Successfully sent message, closing connection..");
-
     }
 }

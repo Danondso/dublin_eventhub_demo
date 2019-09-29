@@ -13,13 +13,13 @@ import java.util.concurrent.ExecutionException;
 
 
 @Component
-public class EventProcessorHostConfig {
+public class EventProcessorHostService {
 
     private final EventProcessorHost eventProcessorHost;
-    private Logger log = LoggerFactory.getLogger(EventProcessorHostConfig.class);
+    private Logger log = LoggerFactory.getLogger(EventProcessorHostService.class);
 
     @Autowired
-    public EventProcessorHostConfig(EventProcessorHost eventProcessorHost) {
+    public EventProcessorHostService(EventProcessorHost eventProcessorHost) {
         this.eventProcessorHost = eventProcessorHost;
     }
 

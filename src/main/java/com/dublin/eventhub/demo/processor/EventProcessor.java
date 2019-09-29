@@ -31,7 +31,7 @@ public class EventProcessor implements IEventProcessor {
         for(EventData event: iterable) {
            EventPayload eventPayload = (EventPayload) SerializationUtils.deserialize(event.getBytes());
             log.info("Hello! My name is {} and my favorite food is {}", eventPayload.getFirstName(), eventPayload.getFavoriteFood());
-            //partitionContext.checkpoint(event);
+            partitionContext.checkpoint(event);
         }
     }
 

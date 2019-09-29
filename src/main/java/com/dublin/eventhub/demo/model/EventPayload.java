@@ -12,6 +12,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EventPayload implements Serializable {
+
+    private static final long serialVersionUID = -6419160374031553535L;
+
     private String firstName;
     private String lastName;
     private String email;

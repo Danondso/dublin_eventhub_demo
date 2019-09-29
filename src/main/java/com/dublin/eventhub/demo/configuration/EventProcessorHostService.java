@@ -3,20 +3,18 @@ package com.dublin.eventhub.demo.configuration;
 import com.dublin.eventhub.demo.exception.ErrorNotificationHandler;
 import com.dublin.eventhub.demo.processor.EventProcessor;
 import com.microsoft.azure.eventprocessorhost.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.concurrent.ExecutionException;
 
-
+@Slf4j
 @Component
 public class EventProcessorHostService {
 
     private final EventProcessorHost eventProcessorHost;
-    private Logger log = LoggerFactory.getLogger(EventProcessorHostService.class);
 
     @Autowired
     public EventProcessorHostService(EventProcessorHost eventProcessorHost) {

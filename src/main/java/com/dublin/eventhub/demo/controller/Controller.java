@@ -2,18 +2,17 @@ package com.dublin.eventhub.demo.controller;
 
 import com.dublin.eventhub.demo.model.EventPayload;
 import com.dublin.eventhub.demo.service.EventHubService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 public class Controller {
 
     private final EventHubService eventHubService;
-    private Logger log = LoggerFactory.getLogger(Controller.class);
 
     @Autowired
     public Controller(EventHubService eventHubService) {

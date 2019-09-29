@@ -1,21 +1,19 @@
 package com.dublin.eventhub.demo.service;
 
-import com.dublin.eventhub.demo.controller.Controller;
 import com.dublin.eventhub.demo.model.EventPayload;
 import com.microsoft.azure.eventhubs.EventData;
 import com.microsoft.azure.eventhubs.EventHubClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.SerializationUtils;
 
 import java.util.Objects;
 
+@Slf4j
 @Service
 public class EventHubService {
     private final EventHubClient eventHubClient;
-    private Logger log = LoggerFactory.getLogger(Controller.class);
 
     @Autowired
     public EventHubService(EventHubClient eventHubClient) {

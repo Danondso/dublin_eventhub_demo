@@ -1,8 +1,8 @@
 eventHub:
-  connectionString: 'connections string here'
-  name: 'event hub name here'
+  connectionString: 'connections string here' #Event Hub connection string goes here
+  name: 'event hub name here' # The name of the event hub
   storage:
-    consumerGroupName: $Default
+    consumerGroupName: $Default #This is the default consumer group for event hub, but it can be customized
     storageConnectionString: 'storage connection string here'
     storageContainerName: 'storage container name here'
-    hostNamePrefix: f1534aa5-262b-4c6b-a9f8-fd5af544f85b
+    hostNamePrefix: 'some unique prefix' # Identifies the instance of the EventProcessorHost

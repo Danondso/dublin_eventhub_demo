@@ -6,3 +6,7 @@ eventHub:
     storageConnectionString: 'storage connection string here'
     storageContainerName: 'storage container name here'
     hostNamePrefix: 'some unique prefix' # Identifies the instance of the EventProcessorHost
+
+logging:
+  level:
+    com.microsoft.azure.*: ERROR

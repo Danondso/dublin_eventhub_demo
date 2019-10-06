@@ -6,9 +6,11 @@ import com.microsoft.azure.eventprocessorhost.CloseReason;
 import com.microsoft.azure.eventprocessorhost.IEventProcessor;
 import com.microsoft.azure.eventprocessorhost.PartitionContext;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.SerializationUtils;
 
+@Slf4j
 @NoArgsConstructor
 @Service
 public class EventProcessor implements IEventProcessor {
@@ -27,11 +29,14 @@ public class EventProcessor implements IEventProcessor {
 
     @Override
     public void onEvents(PartitionContext partitionContext, Iterable<EventData> iterable) {
-
         for(EventData event: iterable) {
-           EventPayload eventPayload = (EventPayload) SerializationUtils.deserialize(event.getBytes());
-            eventPayloadProcessor.process(eventPayload);
-            partitionContext.checkpoint(event);
+            try{
+                EventPayload eventPayload = (EventPayload) SerializationUtils.deserialize(event.getBytes());
+                eventPayloadProcessor.process(eventPayload);
+                partitionContext.checkpoint(event);
+            } catch (Exception e) {
+                log.error("An Error occured when processing event data, exception: ", e);
+            }
         }
     }
 
